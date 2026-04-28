@@ -7,12 +7,11 @@ import { Card } from "@/components/ui/Card";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { ParallaxElement } from "@/components/animations/ParallaxElement";
 import { DiamondGrid, WaveLine } from "@/components/ui/VectorShapes";
-import { HiCreditCard, HiUserGroup, HiCodeBracket, HiChartBar, HiShieldCheck } from "react-icons/hi2";
-import { FaBitcoin } from "react-icons/fa";
+import { HiCreditCard, HiUserGroup, HiCodeBracket, HiChartBar, HiShieldCheck, HiWallet } from "react-icons/hi2";
 
 const featureIcons = {
   instantCards: HiCreditCard,
-  cryptoTopUp: FaBitcoin,
+  flexibleTopUp: HiWallet,
   teamAccounts: HiUserGroup,
   api: HiCodeBracket,
   analytics: HiChartBar,
@@ -21,7 +20,7 @@ const featureIcons = {
 
 const featureKeys = [
   "instantCards",
-  "cryptoTopUp",
+  "flexibleTopUp",
   "teamAccounts",
   "api",
   "analytics",

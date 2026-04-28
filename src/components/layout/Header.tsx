@@ -3,23 +3,17 @@
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
-import { useRouter } from "@/i18n/navigation";
 import { Container } from "./Container";
 import { Button } from "@/components/ui/Button";
-import { HiBars3, HiXMark, HiChevronDown } from "react-icons/hi2";
+import { HiBars3, HiXMark } from "react-icons/hi2";
 import { cn } from "@/lib/utils/cn";
 import { NAV_LINKS } from "@/lib/utils/constants";
-import { localeNames, type Locale } from "@/i18n/config";
-import { useLocale } from "next-intl";
 
 export function Header() {
   const t = useTranslations("nav");
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [localeOpen, setLocaleOpen] = useState(false);
   const pathname = usePathname();
-  const router = useRouter();
-  const currentLocale = useLocale() as Locale;
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 50);
@@ -30,11 +24,6 @@ export function Header() {
   useEffect(() => {
     setMobileOpen(false);
   }, [pathname]);
-
-  function switchLocale(locale: Locale) {
-    router.replace(pathname, { locale });
-    setLocaleOpen(false);
-  }
 
   return (
     <header
@@ -69,36 +58,6 @@ export function Header() {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
-            <div className="relative">
-              <button
-                onClick={() => setLocaleOpen(!localeOpen)}
-                className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-text-primary transition-colors px-3 py-2 rounded-lg hover:bg-slate-50 cursor-pointer"
-              >
-                {localeNames[currentLocale]}
-                <HiChevronDown className={cn("h-3.5 w-3.5 transition-transform", localeOpen && "rotate-180")} />
-              </button>
-              {localeOpen && (
-                <div className="absolute right-0 top-full mt-2 w-40 rounded-xl border border-slate-200 bg-white p-1 shadow-lg">
-                  {(Object.entries(localeNames) as [Locale, string][]).map(
-                    ([locale, name]) => (
-                      <button
-                        key={locale}
-                        onClick={() => switchLocale(locale)}
-                        className={cn(
-                          "w-full text-left px-3 py-2 text-sm rounded-lg transition-colors cursor-pointer",
-                          locale === currentLocale
-                            ? "text-primary-500 bg-primary-50"
-                            : "text-slate-600 hover:text-text-primary hover:bg-slate-50"
-                        )}
-                      >
-                        {name}
-                      </button>
-                    )
-                  )}
-                </div>
-              )}
-            </div>
-
             <Button variant="ghost" size="sm">
               {t("signIn")}
             </Button>
@@ -135,25 +94,7 @@ export function Header() {
                   {t(link.key)}
                 </Link>
               ))}
-              <div className="flex gap-2 pt-4 border-t border-slate-100">
-                {(Object.entries(localeNames) as [Locale, string][]).map(
-                  ([locale, name]) => (
-                    <button
-                      key={locale}
-                      onClick={() => switchLocale(locale)}
-                      className={cn(
-                        "px-3 py-1.5 text-sm rounded-lg transition-colors cursor-pointer",
-                        locale === currentLocale
-                          ? "bg-primary-50 text-primary-500"
-                          : "text-slate-400 hover:text-text-primary"
-                      )}
-                    >
-                      {name}
-                    </button>
-                  )
-                )}
-              </div>
-              <div className="flex gap-3 pt-4">
+              <div className="flex gap-3 pt-4 border-t border-slate-100">
                 <Button variant="outline" size="sm" className="flex-1">
                   {t("signIn")}
                 </Button>

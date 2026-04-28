@@ -29,18 +29,21 @@ export function Footer() {
               {t("products")}
             </h4>
             <ul className="space-y-3">
-              {["virtualCards", "cryptoTopUp", "apiAccess", "teamManagement"].map(
-                (key) => (
-                  <li key={key}>
-                    <Link
-                      href="/"
-                      className="text-sm text-slate-400 hover:text-white transition-colors"
-                    >
-                      {t(key)}
-                    </Link>
-                  </li>
-                )
-              )}
+              {[
+                { key: "virtualCards", href: "/" },
+                { key: "cardFunding", href: "/rates" },
+                { key: "apiAccess", href: "/contact" },
+                { key: "teamManagement", href: "/about" },
+              ].map((item) => (
+                <li key={item.key}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-slate-400 hover:text-white transition-colors"
+                  >
+                    {t(item.key)}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -127,7 +130,14 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 sm:flex-row">
+        {/* Payment network logos */}
+        <div className="mt-12 flex items-center justify-center gap-6 border-t border-slate-800 pt-8">
+          <img src="/cards/visa.png" alt="Visa" className="h-8 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+          <img src="/cards/mastercard.png" alt="Mastercard" className="h-8 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+          <img src="/cards/pci-dss-compliant-logo-vector.svg" alt="PCI DSS Compliant" className="h-8 object-contain opacity-60 hover:opacity-100 transition-opacity invert" />
+        </div>
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 sm:flex-row">
           <p className="text-xs text-slate-500">
             &copy; {new Date().getFullYear()} Cardium. {t("rights")}
           </p>

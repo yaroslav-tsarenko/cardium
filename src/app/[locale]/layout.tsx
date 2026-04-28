@@ -25,7 +25,10 @@ export async function generateMetadata({
     keywords: [
       "virtual cards",
       "media buying",
-      "crypto payments",
+      "ad spend",
+      "Google Ads",
+      "Meta Ads",
+      "Bing Ads",
       "fintech",
       "Cardium",
     ],

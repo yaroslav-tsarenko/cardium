@@ -10,7 +10,7 @@ import { ParallaxElement } from "@/components/animations/ParallaxElement";
 import { FloatingRings } from "@/components/ui/VectorShapes";
 import { HiCheck, HiArrowRight } from "react-icons/hi2";
 
-const amounts = ["$100", "$200", "$500", "$1,000", "$5,000"];
+const amounts = ["$10", "$100", "$500", "$1,000", "$5,000"];
 
 export function RatesPreview() {
   const t = useTranslations("rates");

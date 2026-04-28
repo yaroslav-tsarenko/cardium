@@ -10,7 +10,7 @@ import { HiCheck, HiXMark } from "react-icons/hi2";
 
 const features = [
   "instantIssuing",
-  "cryptoFunding",
+  "cardFunding",
   "unlimitedCards",
   "teamManagement",
   "apiAccess",

@@ -9,7 +9,6 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { ComparisonSection } from "@/components/sections/ComparisonSection";
 import { RatesPreview } from "@/components/sections/RatesPreview";
 import { SecuritySection } from "@/components/sections/SecuritySection";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
 
@@ -33,7 +32,6 @@ export default async function HomePage({
       <ComparisonSection />
       <RatesPreview />
       <SecuritySection />
-      <TestimonialsSection />
       <FAQSection />
       <CTASection />
     </>

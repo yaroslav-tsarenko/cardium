@@ -7,8 +7,8 @@ import { ParallaxElement } from "@/components/animations/ParallaxElement";
 import { CountUp } from "@/components/animations/CountUp";
 
 const stats = [
-  { key: "cards", value: "2000000", prefix: "", suffix: "+" },
-  { key: "volume", value: "500", prefix: "$", suffix: "M+" },
+  { key: "cards", value: "50", prefix: "", suffix: "K+" },
+  { key: "volume", value: "100", prefix: "", suffix: "+" },
   { key: "uptime", value: "99.99", prefix: "", suffix: "%" },
   { key: "countries", value: "150", prefix: "", suffix: "+" },
 ] as const;
